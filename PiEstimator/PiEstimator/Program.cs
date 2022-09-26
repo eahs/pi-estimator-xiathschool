@@ -25,9 +25,14 @@ namespace PiEstimator
             Random rand = new Random(System.Environment.TickCount);
             double pi = 0.0;
 
-            // TODO: Calculate Pi
-
-            return pi;
+            for (int i = 0; i < n; i++) {
+                double randX = rand.NextDouble();
+                double randY = rand.NextDouble();
+                if (Math.Sqrt(randX * randX + randY * randY) <= 1) {
+                    pi += 1;
+                }
+            }
+            return (pi * 4) / n;
         }
 
         static long GetNumber(string prompt)
